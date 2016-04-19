@@ -17,9 +17,9 @@ Alle Daten sind in einer relationalen, file-basierten [`sqlite`](https://www.sql
 
 * `unitransparenz.sql` - Die Datenbank als SQL-Dump (`sqlite`-Dialekt) - siehe unten
 
-#### Detaillierte Datenbeschreibung
+#### Detaillierte Datenbeschreibung und Methodik
 
-folgt.
+folgt. Der Artikel [Uni-Bindungen: Was die Daten aussagen können – und was nicht](http://www.srf.ch/news/schweiz/uni-transparenz/uni-bindungen-was-die-daten-aussagen-koennen-und-was-nicht) enthält eine grobe Beschreibung.
 
 #### Die Daten einlesen
 
