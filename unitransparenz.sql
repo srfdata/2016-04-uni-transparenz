@@ -5119,7 +5119,7 @@ INSERT INTO "Organisation" VALUES(47,'Stiftung für Ostschweizer Kunstschaffen',
 INSERT INTO "Organisation" VALUES(48,'Freisinnige Wohnbaugenossenschaft St. Gallen',0,'',19,232);
 INSERT INTO "Organisation" VALUES(49,'Waldwirtschaft St.Gallen & Liechtenstein (WVSG + FL)',0,'',135,233);
 INSERT INTO "Organisation" VALUES(50,'Schweizerische Bankgesellschaft (SBG)',0,'',16,19);
-INSERT INTO "Organisation" VALUES(51,'Ernst und Annelies Grossenbacher-Güntzel Sfiftung',0,'',12,234);
+INSERT INTO "Organisation" VALUES(51,'Ernst und Annelies Grossenbacher-Güntzel Stiftung',0,'',12,234);
 INSERT INTO "Organisation" VALUES(52,'Hauseigentümer-Verband (HEV) St.Gallen',0,'',19,235);
 INSERT INTO "Organisation" VALUES(53,'Europ. Handball Föderation (EHF)',0,'',65,236);
 INSERT INTO "Organisation" VALUES(54,'Fürsorgestiftung des Hauseigentümer-Verbandes St. Gallen',1,'',42,235);
