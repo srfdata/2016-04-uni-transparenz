@@ -19,7 +19,7 @@ Alle Daten sind in einer relationalen, file-basierten [`sqlite`](https://www.sql
 
 #### Detaillierte Datenbeschreibung und Methodik
 
-folgt. Der Artikel [Uni-Bindungen: Was die Daten aussagen können – und was nicht](http://www.srf.ch/news/schweiz/uni-transparenz/uni-bindungen-was-die-daten-aussagen-koennen-und-was-nicht) enthält eine grobe Beschreibung.
+Eine [detailierte Beschreibung der Datenbank](http://srfdata.github.io/2016-04-uni-transparenz/) ist nun verfügbar. Der Artikel [Uni-Bindungen: Was die Daten aussagen können – und was nicht](http://www.srf.ch/news/schweiz/uni-transparenz/uni-bindungen-was-die-daten-aussagen-koennen-und-was-nicht) enthält eine grobe Beschreibung der verwendeten Methodik.
 
 #### Die Daten einlesen
 
