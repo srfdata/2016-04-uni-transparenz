@@ -223,3 +223,11 @@ Siehe Erläuterungen unter *Organisation*.
 |    Bezeichnung  |  String  | Bezeichnung |
 
 
+### Vorbereitung
+
+Bevor via `RSQLite` mit der Datenbank verbunden werden kann, muss ein SQLite-File aus dem SQL-Dump im Ordner `input` erstellt werden:
+
+```
+cat input/unitransparenz.sql | sqlite3 input/unitransparenz.sqlite
+```
+
