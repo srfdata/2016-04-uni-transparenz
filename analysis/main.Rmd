@@ -3,7 +3,17 @@ subtitle: "Datenbeschreibung und Analyse (folgt)"
 title: "Uni-Transparenz"
 author: "SRF Data, Timo Grossenbacher (timo.grossenbacher@srf.ch), Angelo Zehr (angelo.zehr@srf.ch)"
 date: "04/26/2016"
-output: html_document
+output:
+  html_document:
+    code_folding: show
+    echo: TRUE
+    warning: FALSE
+    message: FALSE
+    theme: simplex
+    toc: yes
+    toc_float: 
+      collapsed: false
+      smooth_scroll: false
 ---
 
 ### Vorbemerkungen
@@ -41,7 +51,7 @@ Es folgt eine Beschreibung der SQLite-Datenbank, vgl. auch das graphische [Daten
 #### Uni
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 | ID | String, Primärschlüssel  | Identifikator, Kurzform der Universität  |
 |  Name  |  String |   Ausgeschriebener Name der Universität   |
 
@@ -50,7 +60,7 @@ Es folgt eine Beschreibung der SQLite-Datenbank, vgl. auch das graphische [Daten
 Universitätseigene Stiftung, oft zur Akquisition von Drittmitteln.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Name  |  String |   Ausgeschriebener Name der Stiftung   |
 |    Uni_ID  |  Integer, Fremdschlüssel auf *Uni* | Unistiftung-(1:1)-Uni |
@@ -60,7 +70,7 @@ Universitätseigene Stiftung, oft zur Akquisition von Drittmitteln.
 *Person*, die im Stiftungsrat einer Unistiftung sitzt. 
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    Unistiftung_ID |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Unistiftung*  | Stiftungsrat-(N:1)-Unistiftung  |
 |  Person_ID  |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Person*  | Stiftungsrat-(N:1)-Person   |
 |    Bezeichnung  |  String | Lokalisierte Bezeichnung |
@@ -70,7 +80,7 @@ Universitätseigene Stiftung, oft zur Akquisition von Drittmitteln.
 Nicht zweckgebundene Spenden (d.h. nicht an konkrete Projekte oder Lehrstühle gebundene Spende), über *Unistiftung* mit *Uni* verbunden. 
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    Unistiftung_ID |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Unistiftung*  | Spende-(N:1)-Unistiftung  |
 |  Organisation_ID  |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Organisation*  | Von welcher Organisation die Spende kommt, Spende-(N:1)-Organisation   |
 |    Art  |  String | Beschreibung der Spende |
@@ -82,7 +92,7 @@ Nicht zweckgebundene Spenden (d.h. nicht an konkrete Projekte oder Lehrstühle g
 *Person*, die im Universitätsrat einer Universität sitzt. 
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    Uni_ID |  String, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Uni*  | Unirat-(N:1)-Uni  |
 |  Person_ID  |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Person*  | Unirat-(N:1)-Person   |
 |    Bezeichnung  |  String | Lokalisierte Bezeichnung |
@@ -92,7 +102,7 @@ Nicht zweckgebundene Spenden (d.h. nicht an konkrete Projekte oder Lehrstühle g
 Grundeinheit, die nur in der Spezialisierung eines *Unirat*, *Stiftungsrat* oder *Professor* existiert. Ermöglicht die gleichzeitige Existenz von diesen drei Spezialisierungen in ein und derselben Person. 
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |    Vorname  |  String | |
 |    Nachname  |  String | |
@@ -104,7 +114,7 @@ Grundeinheit, die nur in der Spezialisierung eines *Unirat*, *Stiftungsrat* oder
 *Person*, die an einer *Tochtereinheit* (Fakultät, Abteilung) oder mehr und somit an einer *Universität* oder mehr lehrt. Per *ProfessorTochtereinheit* mit *Tochtereinheit* verbunden - es ergibt sich die Relation Professor-(N:M)-Tochtereinheit.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |  Person_ID  |  Integer, Primärschlüssel, Fremdschlüssel auf *Person*  | Professor-(N:1)-Person   |
 |    Institut  |  String | Name des Institut, an dem der Professor *primär* tätig ist (aus Gründen dieser Modellierung ist nur ein Institut per Professor möglich, die Aussagekräft dieses Felds ist somit beschränkt) |
 |    Email  |  String | Primäre Email-Adresse (aus Gründen dieser Modellierung ist nur eine Email per Professor möglich, die Aussagekräft dieses Felds ist somit beschränkt - innerhalb einer Universität wird an unterschiedlichen Tochtereinheiten oft die gleiche Emailadresse verwendet, der Professor kann jedoch auch an mehr als einer Universität lehren) |
@@ -114,7 +124,7 @@ Grundeinheit, die nur in der Spezialisierung eines *Unirat*, *Stiftungsrat* oder
 Erste Untereinheit einer *Universität*, oftmals eine Fakultät. Per *ProfessorTochtereinheit* mit *Professor* verbunden - es ergibt sich die Relation Professor-(N:M)-Tochtereinheit.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Name  |  String |   Name der Tochtereinheit   |
 |    Uni_ID  |  String, Fremdschlüssel auf *Uni* | Tochtereinheit-(N:1)-Uni |
@@ -125,7 +135,7 @@ Erste Untereinheit einer *Universität*, oftmals eine Fakultät. Per *ProfessorT
 Klassifikation des Forschungsbereichs / der Ausrichtung einer *Tochtereinheit*.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Name  |  String |   Bezeichnung  |
 
@@ -134,7 +144,7 @@ Klassifikation des Forschungsbereichs / der Ausrichtung einer *Tochtereinheit*.
 Verbindungstabelle zwischen *Professor* und *Tochtereinheit*, da (N:M)-Relation.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    Professor_ID |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Professor*  | ProfessorTochtereinheit-(N:1)-Professor  |
 |  Tochtereinheit_ID  |  Integer, gemeinsamer Primärschlüssel, Fremdschlüssel auf *Tochtereinheit*  | ProfessorTochtereinheit-(N:1)-Tochtereinheit   |
 
@@ -143,7 +153,7 @@ Verbindungstabelle zwischen *Professor* und *Tochtereinheit*, da (N:M)-Relation.
 Verbindung einer *Person* mit einer *Organisation* - nicht zwingend eine Anstellung im engeren Sinn. Die Tabelle hat einen eigenen Primärschlüssel (`ID`) da Personen mehrere Verbindungen mit der gleichen Organisation, z.B. in einer anderen Funktion, haben können.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Person_ID  |  Integer, Fremdschlüssel auf *Person*  | Anstellung-(N:1)-Person   |
 |  Organisation_ID  |  Integer, Fremdschlüssel auf *Organisation*  | Anstellung-(N:1)-Organisation   |
@@ -157,7 +167,7 @@ Verbindung einer *Person* mit einer *Organisation* - nicht zwingend eine Anstell
 Verbindung einer *Tochtereinheit* mit einer *Organisation* - z.B. in Form eines gesponserten Lehrstuhls. Die Tabelle hat einen eigenen Primärschlüssel (`ID`) da Tochtereinheiten theoretisch mehrere Verbindungen mit der gleichen Organisation haben können. Die Art der Kooperation ist mit der Lookup-Tabelle *Kooperationsart* umschrieben.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Tochtereinheit_ID  |  Integer, Fremdschlüssel auf *Tochtereinheit*  | Kooperation-(N:1)-Tochtereinheit   |
 |  Organisation_ID  |  Integer, Fremdschlüssel auf *Organisation*  | Kooperation-(N:1)-Organisation   |
@@ -174,7 +184,7 @@ Verbindung einer *Tochtereinheit* mit einer *Organisation* - z.B. in Form eines 
 Klassifikation einer *Kooperation*.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Bezeichnung  |  String |   Bezeichnung  |
 
@@ -185,7 +195,7 @@ Mit Organisationen sind Firmen, öffentliche Stellen, andere Universitäten oder
 Organisationen sind zudem zu Lobbywatch-Interessengruppen zugewiesen, die wiederum zu spezifischen Branchen zusammengefasst wurden. Siehe [Uni-Bindungen: Was die Daten aussagen können – und was nicht](http://www.srf.ch/news/schweiz/uni-transparenz/uni-bindungen-was-die-daten-aussagen-koennen-und-was-nicht), Punkt 5.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Interessengruppe_ID  |  Integer, Fremdschlüssel auf *Interessengruppe*  | Organisation-(N:1)-Interessengruppe   |
 |  Name_ID  |  Integer, Fremdschlüssel auf *Name*  | Organisation-(N:1)-Name   |
@@ -198,7 +208,7 @@ Organisationen sind zudem zu Lobbywatch-Interessengruppen zugewiesen, die wieder
 Eindeutiger Name einer *Organisation*, siehe oben.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |    Stiftung  |  Boolean  | Nicht verwendet / nicht korrekt  |
 |  Name  |  String |   Kanonischer/eindeutiger Name  |
@@ -208,7 +218,7 @@ Eindeutiger Name einer *Organisation*, siehe oben.
 Aus dem Lobbywatch-Datenmodell. Siehe Erläuterungen unter *Organisation*.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |  Branche_ID  |  Integer, Fremdschlüssel auf *Branche*  |   Interessengruppe-(N:1)-Branche  |
 |    Bezeichnung  |  String  | Lobbywatch-Bezeichnung |
@@ -218,7 +228,7 @@ Aus dem Lobbywatch-Datenmodell. Siehe Erläuterungen unter *Organisation*.
 Siehe Erläuterungen unter *Organisation*.
 
 | Attribut | Typ | Beschreibung | 
-|-------|------|---------|
+|-------|------|---------------------------------------------------|
 |    ID  |  Integer, Primärschlüssel  | Identifikator  |
 |    Bezeichnung  |  String  | Bezeichnung |
 
