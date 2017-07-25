@@ -11,11 +11,11 @@ Die Daten in diesem Repository beziehen sich auf die Serie [Die Interessenbindun
 
 Alle Daten sind in einer relationalen, file-basierten [`sqlite`](https://www.sqlite.org/)-Datenbank gespeichert. In der [interaktiven Visualisierung](http://www.srf.ch/news/interaktive-grafik-alle-interessenbindungen-auf-einen-blick) wird eine Teilmenge/Ansicht davon visualisiert.
 
-* `unitransparenz.mwb` - Datenbankmodell, erstellt mit [MySQL-Workbench](https://github.com/mysql/mysql-workbench) und mit dem [mysql-wb-exportsqlite Plugin](https://github.com/tatsushid/mysql-wb-exportsqlite) exportiert- wo möglich wurde relationelle Integrität implementiert
+* `analysis/input/unitransparenz.mwb` - Datenbankmodell, erstellt mit [MySQL-Workbench](https://github.com/mysql/mysql-workbench) und mit dem [mysql-wb-exportsqlite Plugin](https://github.com/tatsushid/mysql-wb-exportsqlite) exportiert- wo möglich wurde relationelle Integrität implementiert
 
-* `unitransparenz.pdf` - PDF des obigen Modells
+* `analysis/input/unitransparenz.pdf` - PDF des obigen Modells
 
-* `unitransparenz.sql` - Die Datenbank als SQL-Dump (`sqlite`-Dialekt) - siehe unten
+* `analysis/input/unitransparenz.sql` - Die Datenbank als SQL-Dump (`sqlite`-Dialekt) - siehe unten
 
 #### Detaillierte Datenbeschreibung und Methodik
 
